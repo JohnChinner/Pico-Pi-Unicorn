@@ -1,0 +1,45 @@
+##This code will change the colour on the entire pixel array when you push a button
+## x = off
+## y = green
+## a = blue
+## b = red
+
+import picounicorn as unicorn
+import time
+print('Hello World') # check REPL and why not!
+
+unicorn.init()
+
+def clear():
+    for x in range(0, 16):
+        for y in range(0, 7):
+            unicorn.set_pixel(x,y, 0, 0, 0)
+
+def blue():
+    for x in range(0, 16):
+        for y in range(0, 7):
+            unicorn.set_pixel(x,y, 0, 0, 255)
+            
+def red():
+    for x in range(0, 16):
+        for y in range(0, 7):
+            unicorn.set_pixel(x,y, 255, 0, 0)
+            
+def green():
+    for x in range(0, 16):
+        for y in range(0, 7):
+            unicorn.set_pixel(x,y, 0, 255, 0)
+            
+while True:
+    buttona = (unicorn.is_pressed(unicorn.BUTTON_A))
+    buttonb = (unicorn.is_pressed(unicorn.BUTTON_B))
+    buttonx = (unicorn.is_pressed(unicorn.BUTTON_X))
+    buttony = (unicorn.is_pressed(unicorn.BUTTON_Y))
+    if buttona == True:
+        blue()
+    if buttonb == True:
+        red()
+    if buttonx == True:
+        clear()
+    if buttony == True:
+        green()
