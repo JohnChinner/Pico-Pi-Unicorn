@@ -1,0 +1,21 @@
+## this will only work with the pimoroni-pico-micropython.uf2 file dropped on yor Pico with Unicorn pHAT attched - see readme##
+##Code by John Chinner##
+##Will diplay random RGB colours on all your Unicorn pHAT LED's##
+
+import picounicorn as unicorn
+import random
+import time
+
+print('Hello World') # check REPL and why not!
+
+unicorn.init()
+
+while True:                      #loop forever
+    xrand = random.randint(0,15) # generate random x value for pixel
+    yrand = random.randint(0,6)  # generate random y value for pixel
+    r = random.randint(0, 255)   # generate random red element
+    g = random.randint(0, 255)   #generate random green element
+    b = random.randint(0, 255)   #generate random blue element
+    
+    unicorn.set_pixel(xrand,yrand, r, g, b)  #set the random pixel a random colour
+    time.sleep_ms(5)    # sleep for 5 milliseconds - make this bigger to slow the refresh rate
